@@ -1,0 +1,36 @@
+# Переменные окружения
+.env
+
+# База данных
+*.db
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Виртуальное окружение
+venv/
+env/
+.venv/
+ENV/
+
+# Загруженные файлы
+static/uploads/*
+!static/uploads/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Логи
+*.log

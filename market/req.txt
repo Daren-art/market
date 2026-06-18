@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+jinja2
+python-multipart
+passlib[bcrypt]
+starlette
+itsdangerous
+python-dotenv

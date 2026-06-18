@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Marketplace — Товары{% endblock %}
+{% block content %}
+<main>
+    <h1 class="page-title">🛍️ Все товары</h1>
+    {% if products %}
+    <div class="grid">
+        {% for product in products %}
+        <div class="card">
+            {% if product.image %}
+                <img class="card-img" src="{{ product.image }}" alt="{{ product.name }}">
+            {% else %}
+                <div class="card-img-placeholder">📦</div>
+            {% endif %}
+            <div class="card-body">
+                <div class="card-title">{{ product.name }}</div>
+                <div class="card-desc">{{ product.description }}</div>
+                <div class="card-price">{{ "%.0f"|format(product.price) }} ₽</div>
+                <form action="/cart/add/{{ product.id }}" method="post">
+                    <button type="submit" class="btn btn-primary btn-full">🛒 В корзину</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty">
+        <div class="empty-icon">📦</div>
+        <h3>Товаров пока нет</h3>
+        <p>Скоро здесь появятся товары</p>
+    </div>
+    {% endif %}
+</main>
+{% endblock %}
