@@ -26,6 +26,7 @@
         <div class="err">⚠️ {{ error }}</div>
         {% endif %}
         <form action="/admin/login" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
             <label>Пароль администратора</label>
             <input type="password" name="password" placeholder="Введите пароль" required autofocus>
             <button type="submit">Войти в админку</button>

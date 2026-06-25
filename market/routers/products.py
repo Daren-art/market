@@ -4,9 +4,11 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from database.database import get_db
 from database.models import Product, CartItem, Order, OrderItem
+from csrf import get_csrf_token
 
 router = APIRouter()
 templates = Jinja2Templates(directory="templates")
+
 
 @router.get("/", response_class=HTMLResponse)
 def home(request: Request, db: Session = Depends(get_db)):
@@ -19,8 +21,14 @@ def home(request: Request, db: Session = Depends(get_db)):
     return templates.TemplateResponse(
         request=request,
         name="index.html",
-        context={"request": request, "products": products, "cart_count": cart_count}
+        context={
+            "request": request,
+            "products": products,
+            "cart_count": cart_count,
+            "csrf_token": get_csrf_token(request)
+        }
     )
+
 
 @router.get("/orders", response_class=HTMLResponse)
 def orders_page(request: Request, db: Session = Depends(get_db)):

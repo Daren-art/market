@@ -58,6 +58,7 @@
         <div class="form-card">
             <h2>➕ Добавить товар</h2>
             <form action="/admin/product" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
                 <div class="fg">
                     <label>Название</label>
                     <input type="text" name="name" placeholder="Название товара" required>
@@ -91,6 +92,7 @@
                         <div class="pcard-name">{{ product.name }}</div>
                         <div class="pcard-price">{{ "%.0f"|format(product.price) }} ₽</div>
                         <form action="/admin/product/{{ product.id }}/delete" method="post">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
                             <button type="submit" class="btn-del">🗑 Удалить</button>
                         </form>
                     </div>

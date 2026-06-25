@@ -22,7 +22,7 @@
 ### 1. Клонируй репозиторий
 
 ```bash
-git clone https://github.com/Daren-art/market.git
+git clone https://github.com/твой-юзер/marketplace.git
 cd marketplace
 ```
 

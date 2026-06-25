@@ -9,6 +9,7 @@ from routers.cart import router as cart_router
 from starlette.middleware.sessions import SessionMiddleware
 from routers.admin_orders import router as admin_orders_router
 from config import SECRET_KEY
+from csrf import CSRFMiddleware
 
 app = FastAPI()
 
@@ -16,6 +17,7 @@ app.add_middleware(
     SessionMiddleware,
     secret_key=SECRET_KEY
 )
+app.add_middleware(CSRFMiddleware)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 

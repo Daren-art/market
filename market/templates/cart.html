@@ -19,6 +19,7 @@
                 </div>
                 <div class="cart-item-total">{{ "%.0f"|format(product.subtotal) }} ₽</div>
                 <form action="/cart/remove/{{ product.id }}" method="post" style="margin-left:12px;">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
                     <button type="submit" class="btn btn-danger" style="padding:8px 12px;">✕</button>
                 </form>
             </div>
@@ -37,6 +38,7 @@
                 <span>{{ "%.0f"|format(total) }} ₽</span>
             </div>
             <form action="/checkout" method="post" style="margin-top:20px;">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
                 <button type="submit" class="btn btn-primary btn-full" style="font-size:16px;padding:14px;">✅ Оформить заказ</button>
             </form>
             <a href="/" class="btn btn-secondary btn-full" style="margin-top:10px;">← Продолжить покупки</a>
