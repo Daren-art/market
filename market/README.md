@@ -23,7 +23,7 @@
 
 ```bash
 git clone https://github.com/твой-юзер/marketplace.git
-cd marketplace
+cd market
 ```
 
 ### 2. Создай виртуальное окружение
